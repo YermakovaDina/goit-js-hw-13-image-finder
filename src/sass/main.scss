@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body,
+ul {
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(86, 167, 187);
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.search-form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 400px;
+  margin-right: auto;
+
+  width: 700px;
+  height: 40px;
+  border-radius: 2px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px 24px;
+}
+
+.list {
+  flex-basis: calc((100% - 40px) / 3);
+}
+
+.photo-card {
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: honeydew;
+
+  &__image {
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+js-input {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  padding: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  color: aliceblue;
+
+  font-size: 24px;
+  background-color: rgb(31, 90, 105);
+}
+
+.js-input {
+  font-size: 24px;
+  width: 300px;
+  height: 50px;
+}
+
+.load-more-btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin: 0 auto;
+}

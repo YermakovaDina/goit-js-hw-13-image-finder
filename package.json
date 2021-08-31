@@ -21,16 +21,19 @@
   },
   "homepage": "https://YermakovaDina.github.io/goit-js-hw-13-image-finder",
   "devDependencies": {
+    "@pnotify/core": "^5.2.0",
+    "css-loader": "^6.2.0",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
+    "pnotify": "^5.2.0",
     "posthtml-include": "^1.7.1",
     "sass": "^1.38.1"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "gh-pages": "^3.2.3",
     "handlebars": "^4.7.7",
-    "lodash.debounce": "^4.0.8",
-    "pnotify": "^5.2.0"
+    "lodash.debounce": "^4.0.8"
   }
 }
