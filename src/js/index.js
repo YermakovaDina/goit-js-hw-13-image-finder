@@ -6,7 +6,6 @@ import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import { error, defaultModules } from '@pnotify/core';
 
-//defaults.delay = 1500;
 const pixabyApiService = new PixabyApiService();
 
 refs.searchForm.addEventListener('sabmit', onSearch);
