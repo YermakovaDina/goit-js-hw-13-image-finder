@@ -8,7 +8,7 @@ import { error, defaultModules } from '@pnotify/core';
 
 const pixabyApiService = new PixabyApiService();
 
-refs.searchForm.addEventListener('sabmit', onSearch);
+refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
@@ -19,7 +19,6 @@ function onSearch(e) {
   pixabyApiService.fetchArticles().then(data => {
     errorResult(data);
     clearArticlesContainer();
-    //appArticlesMarkup(articles); appendCardsMarkup
   });
 }
 
@@ -27,7 +26,7 @@ function errorResult(data) {
   if (data.length === 0) {
     error({
       text: 'Изображение не найдено.',
-      delay: 2000,
+      delay: 1500,
     });
   }
   pixabyApiService.fetchArticles().then(appArticlesMarkup);
@@ -46,7 +45,7 @@ function scrollList() {
 }
 
 function appArticlesMarkup(hits) {
-  refs.galleryContainer.insertAdjacentHTML('beforeennd', galleryCards(hits));
+  refs.galleryContainer.insertAdjacentHTML('beforeend', galleryCards(hits));
   scrollList();
 }
 

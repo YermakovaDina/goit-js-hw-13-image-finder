@@ -15,7 +15,7 @@ export default class PixabyApiService {
 
         return data.hits;
       })
-      .catch(console.log('Error'));
+      .catch(err => console.log('Error'));
   }
 
   incrementPage() {
