@@ -89,6 +89,7 @@ button {
   padding: 12px;
   color: rgb(240, 243, 245);
 
+  border: none;
   border-radius: 30px;
 
   font-size: 24px;
@@ -115,5 +116,13 @@ button {
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10px;
+}
+
+.is-hidden {
+  opacity: 0;
+  //display: none;
+}
+
+.is-open {
+  opacity: 1;
 }

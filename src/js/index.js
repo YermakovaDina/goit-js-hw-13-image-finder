@@ -4,12 +4,13 @@ import { refs } from './refs';
 import PixabyApiService from './apiService';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
-import { error, defaultModules } from '@pnotify/core';
+import { error, success, defaultModules } from '@pnotify/core';
 
 const pixabyApiService = new PixabyApiService();
 
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
+//refs.galleryContainer.addEventListener('click', onClick);
 
 function onSearch(e) {
   e.preventDefault();
@@ -20,6 +21,7 @@ function onSearch(e) {
     errorResult(data);
     clearArticlesContainer();
   });
+  refs.loadMoreBtn.classList.add('is-open');
 }
 
 function errorResult(data) {
@@ -33,22 +35,32 @@ function errorResult(data) {
   return;
 }
 
-function onLoadMore() {
-  pixabyApiService.fetchArticles().then(appArticlesMarkup);
-}
+function onLoadMore(e) {
+  e.preventDefault();
 
-function scrollList() {
-  refs.loadMoreBtn.scrollIntoView({
-    behavior: 'smooth',
-    block: 'end',
-  });
+  pixabyApiService
+    .fetchArticles()
+    .then(appArticlesMarkup)
+    .then(() => {
+      refs.loadMoreBtn.scrollIntoView({ block: 'end', behavior: 'smooth' });
+      success({ text: 'Добавлено больше ответов' });
+    });
 }
 
 function appArticlesMarkup(hits) {
   refs.galleryContainer.insertAdjacentHTML('beforeend', galleryCards(hits));
-  scrollList();
 }
 
 function clearArticlesContainer() {
   refs.galleryContainer.innerHTML = '';
 }
+
+// function onClick(e) {
+//   fetchLargeImgUrl(e.target.getAttribute('data-id'))
+//     .then(dating => dating.hits[0])
+//     .then(res => {
+//       console.log(res);
+//       const instance = basicLightbox.create(e.target.outerHTML);
+//       instance.show();
+//     });
+// }
